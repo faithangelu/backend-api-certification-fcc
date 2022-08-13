@@ -10,9 +10,8 @@ let app = express();
 // })
 
 // Serve an HTML File
-app.get("/views/index.html", (req, res) => {
-    let absolutePath = __dirname + relativepath/File.ext
-    res.sendFile(absolutePath);
+app.get("/", (req, res) => {    
+    res.sendFile(__dirname + "/views/index.html");
 })
 
 
