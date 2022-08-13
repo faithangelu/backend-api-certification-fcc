@@ -19,7 +19,7 @@ app.use('/public', express.static(__dirname+"/public"));
 
 // Serve JSON on a Specific Route
 app.get('/json', (req,res) => {
-    res.json({ "message": "Hello json"})
+    res.json({"message": "Hello json"})
 })
 
 
