@@ -39,18 +39,37 @@ app.use('/public', express.static(__dirname+"/public"));
 //     res.send(req.time)
 // })
 
-app.get('/now', (req, res, next) => {
-    req.time =  new Date().toString();
-    next();
-  }, (req, res) => {    
-    res.json({ time: req.time})
-    console.log(req.time)
+// app.get('/now', (req, res, next) => {
+//     req.time =  new Date().toString();
+//     next();
+//   }, (req, res) => {    
+//     res.json({ time: req.time})
+//     console.log(req.time)
+//   })
+  
+
+
+app.post('/:word/:echo', (req, res) => {
+    let {param1, param2} = req.params;
+    res.json(req.params)
+   console.log(req.params)
+  }).get('/:word/:echo', (req, res) => {    
+    var word   = req.params.word; 
+  
+    // var echo  = req.params.echo; 
+    res.json({ echo: word })
+    console.log(req.params.word);
   })
   
 
-// app.listen(3000, function() {
-//     console.log("Serving 3000")
-// })
+
+
+  
+  
+
+app.listen(3000, function() {
+    console.log("Serving 3000")
+})
 
 
 
