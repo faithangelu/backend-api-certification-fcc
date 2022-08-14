@@ -32,10 +32,25 @@ dotenv.config();
 // })
 
 
-app.use((req, res, next) => {
-   console.log(`${req.method} ${req.path} - ${req.ip}`);
-    next()
-})
+// app.use((req, res, next) => {
+//    console.log(`${req.method} ${req.path} - ${req.ip}`);
+//     next()
+// })
+
+// app.get('/now', (req, res) => {
+
+// }, (req, res) => {
+//     res.send(req.time)
+// })
+
+app.get('/now', (req, res, next) => {
+    req.time =  new Date().toString();
+    next();
+  }, (req, res) => {    
+    res.json({ time: req.time})
+    console.log(req.time)
+  })
+  
 
 // app.listen(3000, function() {
 //     console.log("Serving 3000")
