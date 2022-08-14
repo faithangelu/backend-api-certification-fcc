@@ -12,13 +12,13 @@ dotenv.config();
 //    res.send("Hello Express");
 // })
 
-// Serve an HTML File
-// app.get("/", (req, res) => {    
-//     res.sendFile(__dirname + "/views/index.html");    
-// })
+Serve an HTML File
+app.get("/", (req, res) => {    
+    res.sendFile(__dirname + "/views/index.html");    
+})
 
-// // Serve Static Asstes
-// app.use('/public', express.static(__dirname+"/public"));
+// Serve Static Asstes
+app.use('/public', express.static(__dirname+"/public"));
 
 // // Serve JSON on a Specific Route
 // app.get('/json', (req,res) => {
