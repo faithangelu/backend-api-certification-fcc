@@ -1,6 +1,8 @@
 let express = require('express');
 let app = express();
-let process = require('dotenv').config()
+let dotenv = require('dotenv')
+
+dotenv.config();
 
 // Meet the Node Console 
 // console.log("Hello World")
