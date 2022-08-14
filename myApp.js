@@ -23,17 +23,19 @@ app.use('/public', express.static(__dirname+"/public"));
 // Serve JSON on a Specific Route
 app.get('/json', (req,res) => {
     if (process.env.MESSAGE_STYLE === "uppercase") {
-        // res.send({ message: "HELLO JSON"})
-        console.log(process.env.MESSAGE_STYLE)
+        res.send({ message: "HELLO JSON"})
+        // console.log(process.env.MESSAGE_STYLE)
     } else {
-        console.log('Not working')
-        // res.send({message: "Hello json"})
+        // console.log('Not working')
+        res.send({message: "Hello json"})
     } 
 })
 
 
 
-
+// app.listen(3000, function() {
+//     console.log("Serving 3000")
+// })
 
 
 
