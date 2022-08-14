@@ -49,18 +49,28 @@ app.use('/public', express.static(__dirname+"/public"));
   
 
 
-app.post('/:word/:echo', (req, res) => {
-    let {param1, param2} = req.params;
-    res.json(req.params)
-   console.log(req.params)
-  }).get('/:word/:echo', (req, res) => {    
-    var word   = req.params.word; 
+// app.post('/:word/:echo', (req, res) => {
+//     let {param1, param2} = req.params;
+//     res.json(req.params)
+//    console.log(req.params)
+//   }).get('/:word/:echo', (req, res) => {    
+//     var word   = req.params.word; 
   
-    // var echo  = req.params.echo; 
-    res.json({ echo: word })
-    console.log(req.params.word);
-  })
+//     // var echo  = req.params.echo; 
+//     res.json({ echo: word })
+//     console.log(req.params.word);
+//   })
   
+// app.route('/name?first=firstname&last=lastname', (req, res) => {    
+app.post('/name?first=firstname&last=lastname',(req, res) => {
+    let { firstname, lastname } = req.query
+    console.log(req.query)
+    res.json(req.query)
+}).get('/name', (req, res) => {
+    let name  = req.query.first + " " + req.query.last
+    res.json({ name : name});
+    console.log(req.query)
+})
 
 
 
