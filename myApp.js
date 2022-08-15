@@ -64,25 +64,18 @@ app.use('/public', express.static(__dirname+"/public"));
 //   })
   
 // app.route('/name?first=firstname&last=lastname', (req, res) => {    
-app.post('/name?first=firstname&last=lastname',(req, res) => {
-    let { firstname, lastname } = req.query
-    console.log(req.query)
-    res.json(req.query)
-}).get('/name', (req, res) => {
-    let name  = req.query.first + " " + req.query.last
-    res.json({ name : name});
-    console.log(req.query)
-}).use((bodyParser.urlencoded({extended: false})))
+    
+app.use(bodyParser.urlencoded({extended: false}))
+app.post('/name',  (req, res) => {
+        
+    var name = req.body.first + " " + req.body.last
+    res.json({ name : name })
+})
 
-
-
-  
-  
 
 app.listen(3000, function() {
     console.log("Serving 3000")
 })
-
 
 
 
